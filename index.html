@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satirtha Basak | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+
+        /* Animation for elements on scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            @apply text-4xl font-extrabold text-slate-800 mb-12 text-center flex items-center justify-center gap-x-3;
+        }
+        
+        .section-title .fa-solid {
+            color: #0891b2; /* cyan-600 */
+        }
+
+        .card {
+            @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+        }
+        
+        /* Multi-color tags */
+        .tag {
+            @apply text-sm font-semibold mr-2 mb-2 px-3 py-1 rounded-full;
+        }
+        .tag-blue { @apply bg-cyan-100 text-cyan-800; }
+        .tag-green { @apply bg-emerald-100 text-emerald-800; }
+        .tag-yellow { @apply bg-amber-100 text-amber-800; }
+        
+        /* Enhanced Timeline styling */
+        .timeline-item {
+            @apply relative pl-12 pb-12;
+        }
+        
+        .timeline-item:last-child {
+            @apply pb-0;
+        }
+
+        .timeline-line {
+            @apply absolute left-5 top-2 bottom-0 w-0.5 bg-slate-200;
+        }
+        
+        .timeline-icon {
+            @apply absolute left-0 top-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md;
+        }
+        
+        .timeline-icon-blue i { @apply text-cyan-600 text-lg; }
+        .timeline-icon-green i { @apply text-emerald-600 text-lg; }
+        .timeline-icon-yellow i { @apply text-amber-600 text-lg; }
+
+        /* Active Nav Link Style */
+        .nav-active {
+            @apply text-cyan-600;
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            @apply fixed bottom-5 right-5 w-12 h-12 bg-cyan-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-cyan-700 transition-all duration-300 opacity-0 invisible;
+        }
+        #back-to-top.visible {
+            @apply opacity-100 visible;
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background-image: linear-gradient(to top right, #ecfeff, #f0fdf4, #fffbeb);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800 tracking-tight">Satirtha Basak</a>
+            <div id="nav-links" class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-slate-600 hover:text-cyan-600 transition font-medium">About</a>
+                <a href="#experience" class="text-slate-600 hover:text-cyan-600 transition font-medium">Experience</a>
+                <a href="#projects" class="text-slate-600 hover:text-cyan-600 transition font-medium">Projects</a>
+                <a href="#skills" class="text-slate-600 hover:text-cyan-600 transition font-medium">Skills</a>
+                <a href="#contact" class="bg-cyan-600 text-white px-5 py-2 rounded-lg hover:bg-cyan-700 transition shadow-sm font-semibold">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-slate-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200">
+            <a href="#about" class="block py-3 px-6 text-sm hover:bg-slate-50">About</a>
+            <a href="#experience" class="block py-3 px-6 text-sm hover:bg-slate-50">Experience</a>
+            <a href="#projects" class="block py-3 px-6 text-sm hover:bg-slate-50">Projects</a>
+            <a href="#skills" class="block py-3 px-6 text-sm hover:bg-slate-50">Skills</a>
+            <a href="#contact" class="block py-3 px-6 text-sm hover:bg-slate-50">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <section id="about" class="text-center py-24 hero-gradient rounded-3xl -mt-6">
+            <img src="https://placehold.co/128x128/E2E8F0/475569?text=SB" alt="Satirtha Basak" class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl border-4 border-white">
+            <h1 class="text-6xl font-extrabold text-slate-800 mb-4 tracking-tight">Satirtha Basak</h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-10">
+                A legal professional with a Computer Science foundation, bridging the gap between technology and law. Passionate about leveraging tech for legal efficiency, championing child rights, and promoting sustainable development.
+            </p>
+            <div class="flex justify-center items-center gap-x-4 mb-10">
+                <a href="#projects" class="bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-cyan-700 transition-transform transform hover:scale-105 shadow-lg">
+                    View My Work
+                </a>
+                 <a href="#contact" class="bg-white text-slate-700 px-8 py-3 rounded-full font-semibold hover:bg-slate-100 transition-transform transform hover:scale-105 shadow-lg border border-slate-200">
+                    Get In Touch
+                </a>
+            </div>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:satirthabasakfb@gmail.com" class="text-slate-500 hover:text-cyan-600 transition text-2xl" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/satirtha-basak-039860178/" target="_blank" class="text-slate-500 hover:text-cyan-600 transition text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="tel:+919932038189" class="text-slate-500 hover:text-cyan-600 transition text-2xl" aria-label="Phone"><i class="fas fa-phone"></i></a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 fade-in-up">
+            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i>Education</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="card p-8 text-center">
+                    <h3 class="text-xl font-bold text-slate-800">Bachelor of Laws (LLB)</h3>
+                    <p class="text-slate-600">Faculty of Law, Delhi University</p>
+                    <p class="text-sm text-slate-500 mt-2 font-medium">2024 - Present</p>
+                </div>
+                <div class="card p-8 text-center">
+                    <h3 class="text-xl font-bold text-slate-800">B.Tech in Computer Science</h3>
+                    <p class="text-slate-600">Vellore Institute of Technology, Vellore</p>
+                    <p class="text-sm text-slate-500 mt-2 font-medium">2018 - 2022</p>
+                </div>
+                 <div class="card p-8 text-center md:col-span-2">
+                    <h3 class="text-xl font-bold text-slate-800">Higher Secondary in Sciences</h3>
+                    <p class="text-slate-600">Vidyasagar Shishu Niketan, Midnapore</p>
+                    <p class="text-sm text-slate-500 mt-2 font-medium">2016</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 fade-in-up">
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i>Internships & Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon timeline-icon-blue"><i class="fa-solid fa-gavel"></i></div>
+                        <div class="card p-6">
+                            <p class="text-sm text-cyan-600 font-semibold">June 2025 - July 2025</p>
+                            <h3 class="text-xl font-bold my-2">Legal Intern, Under Sujay Bandyopadhyay Advocate</h3>
+                            <p class="text-slate-500 mb-4 font-medium">High Court: Calcutta (On-Site)</p>
+                            <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Actively researched provisions in Contract Law, BNS, BSA, BNSS, Torts, and Property Law, demonstrating strong analytical and writing skills.</li>
+                                <li>Observed Calcutta High Court proceedings, gaining first-hand insight into courtroom protocols and enhancing my practical understanding of complex legal issues.</li>
+                                <li>Conducted in-depth research on Articles 226, 227, and 32 of the Indian Constitution, analysing writ jurisdiction, supervisory powers of High Courts, and the enforcement of fundamental rights.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon timeline-icon-green"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="card p-6">
+                            <p class="text-sm text-emerald-600 font-semibold">Jan 2025 - Apr 2025</p>
+                            <h3 class="text-xl font-bold my-2">Legal Intern, Jus Corpus</h3>
+                            <p class="text-slate-500 mb-4 font-medium">Remote</p>
+                            <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Conducting in-depth legal research and analysis on contemporary legal issues, case laws, and legislative developments.</li>
+                                <li>Drafting high-quality legal articles, case commentaries, and content for academic publication and online legal platforms.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon timeline-icon-yellow"><i class="fa-solid fa-book-open-reader"></i></div>
+                         <div class="card p-6">
+                            <p class="text-sm text-amber-600 font-semibold">Nov 2024 - Jan 2025</p>
+                            <h3 class="text-xl font-bold my-2">Legal Intern, The Amikus Qriae</h3>
+                            <p class="text-slate-500 mb-4 font-medium">Remote</p>
+                             <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Conducted extensive legal research and drafted legal articles and documents across diverse legal subjects.</li>
+                                <li>Strengthened skills in legal documentation, drafting, and analysis of case law and statutes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon timeline-icon-green"><i class="fa-solid fa-seedling"></i></div>
+                         <div class="card p-6">
+                            <p class="text-sm text-emerald-600 font-semibold">Nov 2024 - Jan 2025</p>
+                            <h3 class="text-xl font-bold my-2">Intern, UNDP - Bhutan</h3>
+                            <p class="text-slate-500 mb-4 font-medium">Remote</p>
+                             <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Advocated for sustainable living and biodiversity in Bhutan's highland communities through social media storytelling and fundraisers.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon timeline-icon-blue"><i class="fa-solid fa-child-reaching"></i></div>
+                         <div class="card p-6">
+                            <p class="text-sm text-cyan-600 font-semibold">June 2024 - Sept 2024</p>
+                            <h3 class="text-xl font-bold my-2">Intern, CRY - Child Rights and You</h3>
+                            <p class="text-slate-500 mb-4 font-medium">Kolkata, India</p>
+                             <ul class="list-disc list-inside text-slate-600 space-y-2">
+                                <li>Coordinated a team of 14 volunteers in content writing and translation, ensuring accurate and accessible communication materials.</li>
+                                 <li>Contributed to data entry and documentation for child rights initiatives.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Publications Section -->
+        <section id="publications" class="py-20 bg-emerald-50/50 fade-in-up">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title"><i class="fa-solid fa-feather-pointed"></i>Publications & Research</h2>
+                 <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="card p-8">
+                        <h3 class="text-xl font-bold text-slate-800">Protecting Our Personal Information: Best Practices under Recent Privacy Laws</h3>
+                        <p class="text-slate-600 italic mt-1">Jus Corpus Law Journal (Vol. 5 Issue 3, ISSN 2582-7820)</p>
+                        <p class="text-slate-700 mt-3">Explores GDPR, CCPA, LGPD and Australia's Privacy Act to identify consent management, data-security and governance best practices in the age of AI and IoT. Draws on real-world examples to recommend adaptive oversight and international coordination for stronger privacy protection.</p>
+                    </div>
+                     <div class="card p-8">
+                        <h3 class="text-xl font-bold text-slate-800">The Role of International Law in Addressing Global Health Crises</h3>
+                        <p class="text-slate-600 italic mt-1">Journal of Legal Research and Juridical Sciences (Vol. 4 Issue 3, ISSN 2583-0066)</p>
+                        <p class="text-slate-700 mt-3">Reviews key frameworks International Health Regulations and the proposed Pandemic Treaty and analyses Haiti cholera and West African Ebola case studies to highlight enforcement gaps. Calls for enhanced legal tools and multilateral cooperation to build resilient global health systems.</p>
+                    </div>
+                     <div class="card p-8">
+                        <h3 class="text-xl font-bold text-slate-800">Additional Research Papers</h3>
+                         <ul class="list-disc list-inside text-slate-600 space-y-2 mt-3">
+                            <li><b>Enforcement Mechanisms for International Environmental Treaties:</b> Analysed treaty enforcement tools and challenges to compliance in international environmental law.</li>
+                            <li><b>Anti-Trust Law Implications in Sports Broadcasting Monopolies:</b> Explored competition law issues in monopolistic sports broadcasting practices.</li>
+                            <li><b>Legal Implications of Artificial Intelligence in Education:</b> Highlighted privacy, accountability, and ethical issues in AI-driven education.</li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 fade-in-up">
+            <h2 class="section-title"><i class="fa-solid fa-code"></i>Projects</h2>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="card p-0">
+                    <img src="https://placehold.co/600x400/06b6d4/FFFFFF?text=LitAssist" alt="LitAssist Project" class="w-full h-auto">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">LitAssist</h3>
+                        <p class="text-slate-600 mb-4">A litigation-focused web app enabling advocates to manage matters, evidence, and hearings fully offline with auto-sync, improving courtroom efficiency by 40%.</p>
+                        <div class="flex flex-wrap my-4"><span class="tag tag-blue">Offline-first</span><span class="tag tag-green">Auto-Sync</span><span class="tag tag-yellow">OCR</span><span class="tag tag-blue">Legal Tech</span></div>
+                        <a href="https://sat2121.github.io/Lit-Assist/" target="_blank" class="inline-flex items-center gap-x-2 font-semibold text-cyan-600 hover:text-cyan-700 group">
+                            View Project <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card p-0">
+                     <img src="https://placehold.co/600x400/10b981/FFFFFF?text=Lexica+Draft+Pro" alt="Lexica Draft Pro Project" class="w-full h-auto">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Lexica Draft Pro</h3>
+                        <p class="text-slate-600 mb-4">A browser-based contract drafting app with zero servers and 100% client-side privacy. Used by 200+ lawyers/students via GitHub with 45+ templates and 200+ reusable clauses.</p>
+                        <div class="flex flex-wrap my-4"><span class="tag tag-green">Client-Side</span><span class="tag tag-yellow">Privacy-focused</span><span class="tag tag-blue">Open Source</span><span class="tag tag-green">Contract Automation</span></div>
+                        <a href="https://sat2121.github.io/lexica-draft-complete-with-customisation/" target="_blank" class="inline-flex items-center gap-x-2 font-semibold text-emerald-600 hover:text-emerald-700 group">
+                            View Project <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-amber-50/50 fade-in-up">
+            <h2 class="section-title"><i class="fa-solid fa-star"></i>Key Skills</h2>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 text-center flex items-center justify-center gap-x-2 text-cyan-700"><i class="fa-solid fa-scale-balanced"></i> Legal Skills</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="tag tag-blue">Contract Drafting</span><span class="tag tag-blue">Contract Review</span><span class="tag tag-blue">Negotiation</span><span class="tag tag-blue">Legal Compliance</span><span class="tag tag-blue">Legal Research</span><span class="tag tag-blue">Analytical Research</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 text-center flex items-center justify-center gap-x-2 text-emerald-700"><i class="fa-solid fa-microchip"></i> Technical Skills</h3>
+                     <div class="flex flex-wrap justify-center gap-2">
+                        <span class="tag tag-green">Generative AI</span><span class="tag tag-green">ChatGPT Proficiency</span><span class="tag tag-green">Data Synthesis</span><span class="tag tag-green">Insight Generation</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 text-center flex items-center justify-center gap-x-2 text-amber-700"><i class="fa-solid fa-users"></i> General Skills</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="tag tag-yellow">Content Creation</span><span class="tag tag-yellow">Problem-Solving</span><span class="tag tag-yellow">Team Leadership</span><span class="tag tag-yellow">Cross-Functional Collab</span><span class="tag tag-yellow">Interpersonal Comms</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+         <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center fade-in-up">
+            <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Get In Touch</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">I'm actively seeking new opportunities and am always open to discussing interesting projects and collaborations. Let's connect!</p>
+            <div class="flex justify-center items-center space-x-8">
+                <a href="mailto:satirthabasakfb@gmail.com" class="text-slate-600 hover:text-cyan-600 transition text-4xl"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/satirtha-basak-039860178/" target="_blank" class="text-slate-600 hover:text-cyan-600 transition text-4xl"><i class="fab fa-linkedin"></i></a>
+                <a href="tel:+919932038189" class="text-slate-600 hover:text-cyan-600 transition text-4xl"><i class="fas fa-phone"></i></a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300 py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 Satirtha Basak. All Rights Reserved. Designed with <i class="fa-solid fa-heart text-red-400"></i>.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+            for (let link of mobileMenuLinks) {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            }
+            
+            // --- Animate elements on scroll ---
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            // --- Back to Top Button ---
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#nav-links a:not(:last-child)'); // Exclude contact button
+
+            const activateNavLink = () => {
+                let current = 'about'; // Default to 'about'
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', activateNavLink);
+        });
+    </script>
+</body>
+</html>
+
