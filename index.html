@@ -1,0 +1,386 @@
+import React, { useState } from 'react';
+import { 
+  Mail, Phone, MapPin, Linkedin, ExternalLink, 
+  GraduationCap, Briefcase, FileText, Code, 
+  Search, CheckCircle2, BookOpen,
+  Scale, Globe, Target, Cpu, Users, 
+  Layout, ShieldCheck, Zap, Newspaper, Printer, Download
+} from 'lucide-react';
+
+const App = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const colors = {
+    white: '#FFFFFF',
+    softRed: '#E78F8E',
+    navy: '#2B4570',
+    sage: '#5B7553',
+    deepRed: '#81171B'
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const PageOne = () => (
+    <div className="resume-page bg-white shadow-2xl mx-auto my-8 max-w-[900px] min-h-[1150px] flex flex-col font-sans overflow-hidden print:shadow-none print:my-0 print:max-w-none print:w-[210mm] print:h-[297mm]">
+      {/* HEADER SECTION - NAVY */}
+      <header className="p-10 text-white flex justify-between items-center" style={{ backgroundColor: colors.navy, WebkitAppRegion: 'no-drag' }}>
+        <div className="space-y-2">
+          <h1 className="text-5xl font-black tracking-tighter uppercase">Satirtha Basak</h1>
+          <div className="flex flex-wrap gap-4 text-xs font-bold tracking-widest opacity-90 uppercase">
+             <span className="flex items-center gap-1"><MapPin size={14} /> Salkia, Howrah, West Bengal, India</span>
+             <span className="flex items-center gap-1"><Phone size={14} /> 9932038189</span>
+          </div>
+        </div>
+        <div className="text-right space-y-1">
+          <p className="text-xs font-black uppercase tracking-widest" style={{ color: colors.softRed }}>Legal Tech Professional</p>
+          <div className="flex flex-col items-end gap-1">
+            <span className="text-xs font-medium flex items-center gap-2">satirthabasakfb@gmail.com <Mail size={12}/></span>
+            <a href="https://www.linkedin.com/in/satirtha-basak-039860178/" className="text-xs font-medium flex items-center gap-2 hover:underline">linkedin.com/in/satirtha-basak <Linkedin size={12}/></a>
+          </div>
+        </div>
+      </header>
+
+      <div className="flex flex-1">
+        {/* SIDEBAR - DEEP RED */}
+        <aside className="w-[300px] p-8 text-white flex flex-col gap-8" style={{ backgroundColor: colors.deepRed }}>
+          <section>
+            <div className="flex items-center gap-2 mb-4 border-b pb-2 border-white/20">
+              <GraduationCap size={20} />
+              <h2 className="text-sm font-black uppercase tracking-widest">Education</h2>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <p className="text-xs font-black" style={{ color: colors.softRed }}>2024 - Present</p>
+                <h3 className="text-sm font-bold leading-tight">Bachelor of Laws (LLB)</h3>
+                <p className="text-[10px] opacity-80 uppercase font-bold">Faculty of Law, Delhi University</p>
+              </div>
+              <div>
+                <p className="text-xs font-black" style={{ color: colors.softRed }}>2018 - 2022</p>
+                <h3 className="text-sm font-bold leading-tight">B.Tech in Computer Science Engineering</h3>
+                <p className="text-[10px] opacity-80 uppercase font-bold">VIT Vellore, Tamil Nadu</p>
+              </div>
+              <div>
+                <p className="text-xs font-black" style={{ color: colors.softRed }}>2016</p>
+                <h3 className="text-sm font-bold leading-tight">Higher Secondary in Sciences</h3>
+                <p className="text-[10px] opacity-80 uppercase font-bold">Vidyasagar Shishu Niketan, Midnapore</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div className="flex items-center gap-2 mb-4 border-b pb-2 border-white/20">
+              <Zap size={20} />
+              <h2 className="text-sm font-black uppercase tracking-widest">Skill Proficiency</h2>
+            </div>
+            <div className="space-y-3">
+              {[
+                { label: 'Legal Research', val: '95%' },
+                { label: 'Contract Drafting', val: '90%' },
+                { label: 'Gen-AI Proficiency', val: '92%' },
+                { label: 'Negotiation', val: '85%' },
+                { label: 'Problem-Solving', val: '88%' }
+              ].map(s => (
+                <div key={s.label}>
+                  <div className="flex justify-between text-[10px] font-black uppercase mb-1">
+                    <span>{s.label}</span>
+                    <span>{s.val}</span>
+                  </div>
+                  <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full" style={{ width: s.val, backgroundColor: colors.softRed }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="mt-auto p-4 bg-white/10 rounded-xl border border-white/10">
+            <h4 className="text-[10px] font-black uppercase tracking-tighter mb-2 opacity-60 text-white">Legal Jurisdictions Observed</h4>
+            <div className="grid grid-cols-2 gap-2 text-[9px] font-bold">
+              <span className="flex items-center gap-1"><Scale size={10}/> Contract</span>
+              <span className="flex items-center gap-1"><ShieldCheck size={10}/> BNS/BSA</span>
+              <span className="flex items-center gap-1"><Layout size={10}/> Property</span>
+              <span className="flex items-center gap-1"><Users size={10}/> Torts</span>
+            </div>
+          </div>
+        </aside>
+
+        {/* MAIN CONTENT */}
+        <main className="flex-1 p-8 flex flex-col gap-6" style={{ backgroundColor: colors.white }}>
+          <div className="flex items-center gap-3 mb-2">
+            <Briefcase size={24} style={{ color: colors.navy }} />
+            <h2 className="text-2xl font-black uppercase tracking-tight" style={{ color: colors.navy }}>Professional Internships</h2>
+          </div>
+
+          <div className="space-y-6">
+            <div className="p-6 rounded-2xl border-l-8 shadow-sm" style={{ backgroundColor: '#F8FAFC', borderLeftColor: colors.sage }}>
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-black" style={{ color: colors.navy }}>Intern, CRY - Child Rights and You</h3>
+                <span className="text-[10px] font-black px-3 py-1 rounded-full text-white" style={{ backgroundColor: colors.sage }}>06/2024 - 09/2024</span>
+              </div>
+              <p className="text-[10px] font-bold uppercase mb-3" style={{ color: colors.sage }}>Kolkata, India</p>
+              <p className="text-xs text-gray-700 leading-relaxed font-medium">
+                Coordinated a team of 14 volunteers in content writing and translation, ensuring accurate and accessible communication materials, while contributing to data entry and documentation for child rights initiatives.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl border-l-8 shadow-sm" style={{ backgroundColor: '#FFF5F5', borderLeftColor: colors.softRed }}>
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-black" style={{ color: colors.navy }}>Intern, UNDP - Bhutan</h3>
+                <span className="text-[10px] font-black px-3 py-1 rounded-full text-white" style={{ backgroundColor: colors.softRed }}>11/2024 - 01/2025</span>
+              </div>
+              <p className="text-[10px] font-bold uppercase mb-3" style={{ color: colors.softRed }}>Remote</p>
+              <ul className="text-xs text-gray-700 space-y-2 list-disc ml-4 font-medium">
+                <li>Advocated for sustainable living and biodiversity in Bhutan's highland communities through social media storytelling and fundraisers.</li>
+              </ul>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl border-t-4 shadow-sm" style={{ backgroundColor: '#F0F4F8', borderTopColor: colors.navy }}>
+                <h3 className="text-sm font-black mb-1" style={{ color: colors.navy }}>Legal Intern, The Amikus Qriae</h3>
+                <p className="text-[9px] font-black text-gray-400 mb-2 uppercase tracking-tighter">11/2024 - 01/2025 • Remote</p>
+                <p className="text-[11px] text-gray-600 leading-tight">Conducted extensive legal research and drafted legal articles and documents across diverse legal subjects. Strengthened skills in legal documentation, drafting, and analysis of case law and statutes.</p>
+              </div>
+              <div className="p-5 rounded-2xl border-t-4 shadow-sm" style={{ backgroundColor: '#F0F4F8', borderTopColor: colors.navy }}>
+                <h3 className="text-sm font-black mb-1" style={{ color: colors.navy }}>Legal Intern, Jus Corpus</h3>
+                <p className="text-[9px] font-black text-gray-400 mb-2 uppercase tracking-tighter">01/2025 - 04/2025 • Remote</p>
+                <p className="text-[11px] text-gray-600 leading-tight">Conducting in-depth legal research and analysis on contemporary legal issues, case laws, and legislative developments. Drafting high-quality legal articles, case commentaries, and content for academic publication.</p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl border-2 border-dashed" style={{ borderColor: colors.deepRed }}>
+              <div className="flex justify-between items-start mb-3">
+                <h3 className="text-lg font-black" style={{ color: colors.deepRed }}>Legal Intern, Under Sujay Bandyopadhyay</h3>
+                <span className="text-[10px] font-black px-3 py-1 rounded-full text-white" style={{ backgroundColor: colors.deepRed }}>06/2025 - 07/2025</span>
+              </div>
+              <p className="text-[10px] font-bold uppercase mb-3 text-gray-500 tracking-tighter">Advocate High Court: Calcutta • On-Site</p>
+              <div className="space-y-3">
+                <p className="text-xs text-gray-700 font-medium tracking-tight">• Actively researched provisions in Contract Law, BNS, BSA, BNSS, Torts, and Property Law, demonstrating strong analytical and writing skills.</p>
+                <p className="text-xs text-gray-700 font-medium tracking-tight">• Observed Calcutta High Court proceedings, gaining first-hand insight into courtroom protocols and enhancing my practical understanding of complex legal issues.</p>
+                <p className="text-xs text-gray-700 font-medium tracking-tight">• I conducted in-depth research on Articles 226, 227, and 32 of the Indian Constitution, analysing writ jurisdiction, supervisory powers of High Courts, and the enforcement of fundamental rights.</p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <footer className="h-10 w-full flex items-center justify-center text-[10px] font-bold uppercase tracking-widest bg-gray-50 text-gray-400 print:hidden">
+        Satirtha Basak | Page 01
+      </footer>
+    </div>
+  );
+
+  const PageTwo = () => (
+    <div className="resume-page bg-white shadow-2xl mx-auto my-8 max-w-[900px] min-h-[1150px] flex flex-col font-sans overflow-hidden print:shadow-none print:my-0 print:max-w-none print:w-[210mm] print:h-[297mm] print:break-before-page">
+      <div className="h-4 w-full" style={{ background: `linear-gradient(to right, ${colors.navy}, ${colors.softRed}, ${colors.sage}, ${colors.deepRed})` }}></div>
+      
+      <div className="p-10 flex flex-col gap-10 flex-1">
+        {/* PUBLICATIONS - NAVY BACKGROUND */}
+        <section className="p-8 rounded-3xl text-white relative overflow-hidden" style={{ backgroundColor: colors.navy }}>
+          <div className="absolute top-0 right-0 p-10 opacity-10"><BookOpen size={150}/></div>
+          <div className="flex items-center gap-3 mb-6 relative">
+            <Newspaper size={24} style={{ color: colors.softRed }} />
+            <h2 className="text-2xl font-black uppercase tracking-tight">Publications</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 relative">
+            {[
+              { t: "Enforcement Mechanisms for Environmental Treaties", d: "Analysed treaty enforcement tools and challenges to compliance in international environmental law.", l: "https://www.juscorpus.com/" },
+              { t: "Anti-Trust Law Implications in Sports Broadcasting", d: "Explored competition law issues in monopolistic sports broadcasting practices.", l: "https://www.juscorpus.com/" },
+              { t: "Legal Implications of AI in Education", d: "Highlighted privacy, accountability, and ethical issues in AI-driven education.", l: "https://www.juscorpus.com/" }
+            ].map(p => (
+              <a href={p.l} target="_blank" rel="noopener noreferrer" key={p.t} className="p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group block">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-sm font-black leading-tight" style={{ color: colors.softRed }}>{p.t}</h3>
+                  <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                </div>
+                <p className="text-[11px] opacity-70 leading-snug">{p.d}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* RESEARCH PAPERS - SAGE BACKGROUND */}
+        <section className="p-8 rounded-3xl text-white shadow-lg" style={{ backgroundColor: colors.sage }}>
+          <div className="flex items-center gap-3 mb-6">
+            <Search size={24} style={{ color: colors.white }} />
+            <h2 className="text-2xl font-black uppercase tracking-tight">Detailed Research Papers</h2>
+          </div>
+          <div className="space-y-6">
+            <a href="https://www.juscorpus.com/" target="_blank" rel="noopener noreferrer" className="flex gap-4 items-start group hover:bg-white/5 p-3 rounded-2xl transition-all border border-transparent hover:border-white/10">
+              <div className="p-2 bg-white rounded-lg text-sage shrink-0"><CheckCircle2 size={20}/></div>
+              <div className="flex-1">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg font-black leading-tight mb-1 group-hover:underline">Protecting Our Personal Information: Best Practices under Recent Privacy Laws</h3>
+                  <ExternalLink size={18} className="mt-1 opacity-50 group-hover:opacity-100" />
+                </div>
+                <p className="text-[10px] font-black uppercase opacity-60 mb-2">Jus Corpus Law Journal (Vol. 5 Issue 3, ISSN 2582-7820)</p>
+                <p className="text-xs leading-relaxed opacity-90">Explores GDPR, CCPA, LGPD and Australia's Privacy Act to identify consent management, data-security and governance best practices in the age of AI and IoT. Draws on real-world examples to recommend adaptive oversight and international coordination for stronger privacy protection.</p>
+              </div>
+            </a>
+            <a href="https://jlrjs.com/" target="_blank" rel="noopener noreferrer" className="flex gap-4 items-start group hover:bg-white/5 p-3 rounded-2xl transition-all border border-transparent hover:border-white/10">
+              <div className="p-2 bg-white rounded-lg text-sage shrink-0"><CheckCircle2 size={20}/></div>
+              <div className="flex-1">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg font-black leading-tight mb-1 group-hover:underline">The Role of International Law in Addressing Global Health Crises</h3>
+                  <ExternalLink size={18} className="mt-1 opacity-50 group-hover:opacity-100" />
+                </div>
+                <p className="text-[10px] font-black uppercase opacity-60 mb-2">Journal of Legal Research and Juridical Sciences (Vol. 4 Issue 3, ISSN 2583-0066)</p>
+                <p className="text-xs leading-relaxed opacity-90">Reviews key frameworks International Health Regulations and the proposed Pandemic Treaty and analyses Haiti cholera and West African Ebola case studies to highlight enforcement gaps. Calls for enhanced legal tools and multilateral cooperation to build resilient global health systems.</p>
+              </div>
+            </a>
+            <a href="https://www.juscorpus.com/" target="_blank" rel="noopener noreferrer" className="flex gap-4 items-start group hover:bg-white/5 p-3 rounded-2xl transition-all border border-transparent hover:border-white/10">
+              <div className="p-2 bg-white rounded-lg text-sage shrink-0"><CheckCircle2 size={20}/></div>
+              <div className="flex-1">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg font-black leading-tight mb-1 group-hover:underline">Mergers and Acquisitions in India's Renewable Energy and Clean Tech Sector</h3>
+                  <ExternalLink size={18} className="mt-1 opacity-50 group-hover:opacity-100" />
+                </div>
+                <p className="text-[10px] font-black uppercase opacity-60 mb-2">Jus Corpus Law Journal (Vol. 6 Issue 2, ISSN 2582-7820)</p>
+                <p className="text-xs leading-relaxed opacity-90">Examines emerging trends in mergers and acquisitions within the sector, focusing particularly on key drivers, regulatory incentives, and legal risks that influence these deals.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        {/* PROJECTS - SOFT RED BACKGROUND */}
+        <section className="p-8 rounded-3xl text-white shadow-lg" style={{ backgroundColor: colors.softRed }}>
+          <div className="flex items-center gap-3 mb-6">
+            <Cpu size={24} style={{ color: colors.white }} />
+            <h2 className="text-2xl font-black uppercase tracking-tight">Legal-Tech Projects</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-white text-gray-800 relative shadow-sm">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-black italic tracking-tighter" style={{ color: colors.deepRed }}>LitAssist</h3>
+                <a href="https://sat2121.github.io/Lit-Assist/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-navy transition-colors"><ExternalLink size={16}/></a>
+              </div>
+              <p className="text-xs font-bold text-gray-500 mb-3 underline decoration-deepRed">Litigation-focused web app for advocates.</p>
+              <p className="text-[11px] leading-relaxed mb-4">Enabling advocates to manage matters, evidence, and hearings fully offline with auto-sync. Designed and deployed core modules including Smart Calendar, Limitation Tracker, Evidence Hub (OCR, exhibit stamping, Bates numbering), and Hearing Notebook <span className="font-black text-deepRed" style={{ color: colors.deepRed }}>improving courtroom efficiency by 40%</span>.</p>
+              <div className="flex flex-wrap gap-2">
+                {["React", "OCR Engine", "Bates Stamping", "Offline Sync"].map(t => (
+                  <span key={t} className="text-[8px] px-2 py-0.5 border rounded-full font-bold uppercase tracking-widest bg-slate-50">{t}</span>
+                ))}
+              </div>
+            </div>
+            <div className="p-6 rounded-2xl bg-white text-gray-800 relative shadow-sm">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-black italic tracking-tighter" style={{ color: colors.navy }}>Lexica Draft Pro</h3>
+                <a href="https://sat2121.github.io/lexica-draft-complete-with-customisation/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-navy transition-colors"><ExternalLink size={16}/></a>
+              </div>
+              <p className="text-xs font-bold text-gray-500 mb-3 underline decoration-navy">Browser-based contract drafting app.</p>
+              <p className="text-[11px] leading-relaxed mb-4">Zero servers, zero subscriptions, and 100% client-side privacy. Engineered modular workflows with 45+ templates and 200+ clauses. <span className="font-black" style={{ color: colors.navy }}>Optimized efficiency by 60%</span> through auto-numbering, role mapping, and seamless .docx export.</p>
+              <div className="flex flex-wrap gap-2">
+                {["Privacy-First", "200+ Clauses", "Role Mapping", "Docx Export"].map(t => (
+                  <span key={t} className="text-[8px] px-2 py-0.5 border rounded-full font-bold uppercase tracking-widest bg-slate-50">{t}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* KEY SKILLS - BOTTOM BAR DENSE */}
+        <section className="mt-auto">
+          <div className="p-6 rounded-3xl text-white shadow-inner" style={{ backgroundColor: colors.navy }}>
+             <h2 className="text-xs font-black uppercase tracking-[0.3em] mb-4 text-center opacity-60">Complete Skill Directory</h2>
+             <div className="grid grid-cols-3 md:grid-cols-5 gap-3 text-center">
+                {[
+                  "Contract Drafting", "Contract Review", "Negotiation", "Legal Compliance", 
+                  "Generative AI", "Gen-AI Proficiency", "Content Creation", "Problem-Solving", 
+                  "Team Leadership", "Cross-Functional Collaboration", "Legal Research", 
+                  "Analytical Research", "Data Synthesis", "Insight Generation", "Interpersonal Communication"
+                ].map(skill => (
+                  <div key={skill} className="px-2 py-2 rounded-lg bg-white/5 border border-white/10 text-[9px] font-bold uppercase tracking-tighter flex items-center justify-center hover:bg-white/10 transition-colors">
+                    {skill}
+                  </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      </div>
+      <footer className="h-10 w-full flex items-center justify-center text-[10px] font-bold uppercase tracking-widest bg-gray-50 text-gray-400 print:hidden">
+        Satirtha Basak | Page 02
+      </footer>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-200 pb-20 print:bg-white print:pb-0">
+      <style>{`
+        @media print {
+          @page {
+            size: A4;
+            margin: 0;
+          }
+          body {
+            margin: 0;
+            padding: 0;
+            background: white;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+          .no-print {
+            display: none !important;
+          }
+          .resume-page {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 210mm !important;
+            height: 297mm !important;
+            box-shadow: none !important;
+            page-break-after: always !important;
+            overflow: hidden !important;
+            flex-shrink: 0 !important;
+          }
+          .print-container {
+            display: block !important;
+          }
+          /* Ensure both pages are visible in print */
+          .page-one, .page-two {
+            display: flex !important;
+          }
+        }
+      `}</style>
+
+      {/* Control Panel */}
+      <div className="no-print fixed top-6 right-6 z-50 flex flex-col gap-3">
+        <button 
+          onClick={handlePrint}
+          title="Export to PDF"
+          className="w-14 h-14 rounded-full shadow-2xl flex flex-col items-center justify-center bg-white border-2 hover:scale-110 transition-all text-navy"
+          style={{ color: colors.navy, borderColor: colors.navy }}
+        >
+          <Printer size={20} />
+          <span className="text-[8px] font-black uppercase">PDF</span>
+        </button>
+        
+        <div className="flex flex-col gap-2 p-1 bg-white/50 backdrop-blur rounded-full border border-gray-200">
+          <button 
+            onClick={() => setCurrentPage(1)}
+            className={`w-12 h-12 rounded-full shadow-xl flex items-center justify-center font-bold transition-all border-2 ${currentPage === 1 ? 'text-white border-white scale-110' : 'bg-white border-transparent hover:bg-gray-50'}`}
+            style={currentPage === 1 ? { backgroundColor: colors.navy } : { color: colors.navy }}
+          >
+            1
+          </button>
+          <button 
+            onClick={() => setCurrentPage(2)}
+            className={`w-12 h-12 rounded-full shadow-xl flex items-center justify-center font-bold transition-all border-2 ${currentPage === 2 ? 'text-white border-white scale-110' : 'bg-white border-transparent hover:bg-gray-50'}`}
+            style={currentPage === 2 ? { backgroundColor: colors.navy } : { color: colors.navy }}
+          >
+            2
+          </button>
+        </div>
+      </div>
+
+      <div className="print-container">
+        <div className={`page-one transition-opacity duration-300 ${currentPage === 1 ? 'block' : 'hidden print:block'}`}>
+          <PageOne />
+        </div>
+        <div className={`page-two transition-opacity duration-300 ${currentPage === 2 ? 'block' : 'hidden print:block'}`}>
+          <PageTwo />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
